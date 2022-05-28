@@ -8,8 +8,7 @@
 // Event handling, user interaction is what starts the code execution.
 
 const taskInput = document.getElementById('new-task'); //Add a new task.
-const addButton =
-  document.getElementsByTagName('button')[0]; //first button
+const addButton = document.querySelector('.button--add'); //first button
 const incompleteTaskHolder = document.getElementById(
   'incompleteTasks'
 ); //ul of #incompleteTasks
@@ -35,17 +34,19 @@ const createNewTaskElement = function (taskString) {
   const deleteButtonImg = document.createElement('img'); //delete button image
 
   label.innerText = taskString;
-  label.className = 'task';
+  label.className = 'todo__task-label';
 
   //Each elements, needs appending
   checkBox.type = 'checkbox';
+  checkBox.className = 'todo__checkbox';
   editInput.type = 'text';
-  editInput.className = 'task';
+  editInput.className = 'todo__task';
 
   editButton.innerText = 'Edit'; //innerText encodes special characters, HTML does not.
-  editButton.className = 'edit';
+  editButton.className = 'button button--edit';
 
-  deleteButton.className = 'delete';
+  deleteButton.className = 'button button--delete';
+  deleteButtonImg.className = 'button__remove-ico';
   deleteButtonImg.src = './remove.svg';
   deleteButton.appendChild(deleteButtonImg);
 
@@ -67,7 +68,7 @@ const addTask = function () {
   //Append listItem to incompleteTaskHolder
   incompleteTaskHolder.appendChild(listItem);
   bindTaskEvents(listItem, taskCompleted);
-
+  listItem.className = 'todo__item';
   taskInput.value = '';
 };
 
@@ -80,12 +81,12 @@ const editTask = function () {
   const listItem = this.parentNode;
 
   const editInput = listItem.querySelector(
-    'input[type=text]'
+    '.todo__task'
   );
   const label = listItem.querySelector('label');
-  const editBtn = listItem.querySelector('.edit');
+  const editBtn = listItem.querySelector('.button--edit');
   const containsClass =
-    listItem.classList.contains('editMode');
+    listItem.classList.contains('todo__item--edit');
   //If class of the parent is .editmode
   if (containsClass) {
     //switch to .editmode
@@ -98,7 +99,7 @@ const editTask = function () {
   }
 
   //toggle .editmode on the parent.
-  listItem.classList.toggle('editMode');
+  listItem.classList.toggle('todo__item--edit');
 };
 
 //Delete task.
@@ -149,12 +150,13 @@ const bindTaskEvents = function (
   console.log('bind list item events');
   //select ListItems children
   const checkBox = taskListItem.querySelector(
-    'input[type=checkbox]'
+    '.todo__checkbox'
   );
   const editButton =
-    taskListItem.querySelector('button.edit');
-  const deleteButton =
-    taskListItem.querySelector('button.delete');
+    taskListItem.querySelector('.button--edit');
+  const deleteButton = taskListItem.querySelector(
+    '.button--delete'
+  );
 
   //Bind editTask to edit button.
   editButton.onclick = editTask;
