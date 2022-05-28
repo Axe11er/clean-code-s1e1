@@ -10,7 +10,7 @@
 const taskInput = document.getElementById('new-task'); //Add a new task.
 const addButton = document.querySelector('.button--add'); //first button
 const incompleteTaskHolder = document.getElementById(
-  'incompleteTasks'
+  'incomplete-tasks'
 ); //ul of #incompleteTasks
 const completedTasksHolder = document.getElementById(
   'completed-tasks'

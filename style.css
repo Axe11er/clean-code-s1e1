@@ -106,6 +106,7 @@
   display: block;
   margin: 0 0 20px;
 }
+
 .todo__new-task {
   width: 318px;
 }
@@ -120,6 +121,7 @@
   justify-content: space-between;
   align-items: center;
 }
+
 .todo__item > * {
   vertical-align: middle;
 }
@@ -127,12 +129,14 @@
 .todo__checkbox {
   margin: 0 10px;
 }
+
 .todo__task-label {
   padding-left: 10px;
   box-sizing: border-box;
   font-size: 18px;
   width: 226px;
 }
+
 /* .todo__item > input[type='text'] {
   width: 226px;
 } */
@@ -141,6 +145,7 @@
   transform: rotateZ(45deg);
   transition: transform 200ms ease-in;
 }
+
 .button__remove-ico:hover {
   transform: rotateZ(0);
 }
