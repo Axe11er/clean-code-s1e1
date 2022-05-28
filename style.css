@@ -137,9 +137,6 @@
   width: 226px;
 }
 
-/* .todo__item > input[type='text'] {
-  width: 226px;
-} */
 .button__remove-ico {
   height: 2em;
   transform: rotateZ(45deg);
